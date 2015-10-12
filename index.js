@@ -16,7 +16,7 @@ function randomIdent() {
 module.exports = function(content) {
 	this.cacheable && this.cacheable();
 	var query = loaderUtils.parseQuery(this.query);
-	var attributes = ["img:src"];
+	var attributes = ["svg:src"];
 	if(query.attrs !== undefined) {
 		if(typeof query.attrs === "string")
 			attributes = query.attrs.split(" ");
@@ -36,7 +36,7 @@ module.exports = function(content) {
 	content = [content];
 	links.forEach(function(link) {
 		if(!loaderUtils.isUrlRequest(link.value, root)) return;
-        
+
 		var uri = url.parse(link.value);
 		if (uri.hash !== null && uri.hash !== undefined) {
 		    uri.hash = null;
@@ -44,7 +44,7 @@ module.exports = function(content) {
 		    link.length = link.value.length;
 		}
 
-        
+
 		do {
 			var ident = randomIdent();
 		} while(data[ident]);
